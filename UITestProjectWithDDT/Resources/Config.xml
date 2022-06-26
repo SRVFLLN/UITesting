@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+	<startUrl>https://formy-project.herokuapp.com</startUrl>
+	<filename>Test Data/TestFile.txt</filename>
+	<text>SomeName</text>
+</config>
