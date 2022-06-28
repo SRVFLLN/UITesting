@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 
-namespace UITestProjectWithDDT
+namespace UITestProjectWithDDT.Elements
 {
     public class Image : BaseElement
     {

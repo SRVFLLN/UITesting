@@ -2,6 +2,7 @@
 using System;
 using SeleniumExtras.WaitHelpers;
 using OpenQA.Selenium;
+using UITestProjectWithDDT.Elements;
 
 namespace UITestProjectWithDDT
 {

@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace UITestProjectWithDDT
+namespace UITestProjectWithDDT.Elements
 {
     public class Button : BaseElement
     {

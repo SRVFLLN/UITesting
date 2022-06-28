@@ -3,4 +3,5 @@
 	<startUrl>https://formy-project.herokuapp.com</startUrl>
 	<filename>Test Data/TestFile.txt</filename>
 	<text>SomeName</text>
+	<sourcename>Test Data/WebFormData.json</sourcename>
 </config>

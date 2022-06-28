@@ -1,13 +1,12 @@
 ﻿using OpenQA.Selenium;
-using System;
+using UITestProjectWithDDT.Elements;
 
-namespace UITestProjectWithDDT
+namespace UITestProjectWithDDT.Pages
 {
     public class ScrollPage : Form
     {
-        private static readonly ElementFactory _elementFactory = new ElementFactory();
-        private static readonly InputElement nameInput = _elementFactory.GetInput(By.XPath("//input[@id='name']"),"Name input element");
-        private static readonly InputElement dateInput = _elementFactory.GetInput(By.XPath("//input[@id='date']"), "Date input element");
+        private static readonly InputElement nameInput = new InputElement(By.XPath("//input[@id='name']"),"Name input element");
+        private static readonly InputElement dateInput = new InputElement(By.XPath("//input[@id='date']"), "Date input element");
 
         public ScrollPage() : base(By.TagName("h1"), "Scroll page") { }
 

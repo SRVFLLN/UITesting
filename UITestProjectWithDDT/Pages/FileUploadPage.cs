@@ -1,11 +1,11 @@
 ﻿using OpenQA.Selenium;
+using UITestProjectWithDDT.Elements;
 
-namespace UITestProjectWithDDT
+namespace UITestProjectWithDDT.Pages
 {
     public class FileUploadPage : Form
     {
-        private static readonly ElementFactory _elementFactory = new ElementFactory();
-        private static readonly InputElement fileUpload = _elementFactory.GetInput(By.Id("file-upload-field"),"File upload input element");
+        private static readonly InputElement fileUpload = new InputElement(By.Id("file-upload-field"),"File upload input element");
 
         public FileUploadPage() : base(By.ClassName("form-control"), "File Upload page") { }
 

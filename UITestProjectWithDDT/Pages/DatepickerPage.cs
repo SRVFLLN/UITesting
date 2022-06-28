@@ -1,22 +1,22 @@
 ﻿using OpenQA.Selenium;
 using System;
+using UITestProjectWithDDT.Elements;
 
-namespace UITestProjectWithDDT
+namespace UITestProjectWithDDT.Pages
 {
-    class DatepickerPage : Form
+    public class DatepickerPage : Form
     {
-        private static readonly ElementFactory _elementFactory = new ElementFactory();
-        private static readonly InputElement dateInput = _elementFactory.GetInput(By.XPath("//input[@id='datepicker']"), "Date Input");
-        private static readonly Button daySwitch = _elementFactory.GetButton(By.XPath("//div[contains(@class,'days')]//th[@class='datepicker-switch']"), "Day switch");
-        private static readonly Button monthSwitch = _elementFactory.GetButton(By.XPath("//div[contains(@class,'months')]//th[@class='datepicker-switch']"), "Month switch");
-        private static readonly Button yearsSwitch = _elementFactory.GetButton(By.XPath("//div[contains(@class,'years')]//th[@class='datepicker-switch']"), "Years switch");
-        private static readonly Button decadesSwitch = _elementFactory.GetButton(By.XPath("//div[contains(@class,'decades')]//th[@class='datepicker-switch']"), "Decades switch");
-        private static readonly Button previousCenturies = _elementFactory.GetButton(By.XPath("//div[contains(@class,'centuries')]//th[@class='prev']"),"Previous centuries switch");
-        private static readonly Button nextCenturies = _elementFactory.GetButton(By.XPath("//div[contains(@class,'centuries')]//th[@class='next']"), "Next centuries switch");
-        private static Button dropdownElement(string data) => _elementFactory.GetButton(By.XPath($"//div[contains(@class,'dropdown')]//span[contains(text(),'{data}')]"), $"Button with text '{data}'");
-        private static Button dayElement(string day) => _elementFactory.GetButton(By.XPath($"//div[contains(@class,'dropdown')]//td[@class='day' and text()='{day}']"), $"Button with {day} day");
-        private static Button roundedUpElement(string time) => _elementFactory.GetButton(By.XPath($"//div[contains(@class,'dropdown')]//span[@class='{time} new']"), "rounded up element");
-        private static Button roundedDownElement(string time) => _elementFactory.GetButton(By.XPath($"//div[contains(@class,'dropdown')]//span[@class='{time} old']"), "rounded up element");
+        private static readonly InputElement dateInput = new InputElement(By.XPath("//input[@id='datepicker']"), "Date Input");
+        private static readonly Button daySwitch = new Button(By.XPath("//div[contains(@class,'days')]//th[@class='datepicker-switch']"), "Day switch");
+        private static readonly Button monthSwitch = new Button(By.XPath("//div[contains(@class,'months')]//th[@class='datepicker-switch']"), "Month switch");
+        private static readonly Button yearsSwitch = new Button(By.XPath("//div[contains(@class,'years')]//th[@class='datepicker-switch']"), "Years switch");
+        private static readonly Button decadesSwitch = new Button(By.XPath("//div[contains(@class,'decades')]//th[@class='datepicker-switch']"), "Decades switch");
+        private static readonly Button previousCenturies = new Button(By.XPath("//div[contains(@class,'centuries')]//th[@class='prev']"), "Previous centuries switch");
+        private static readonly Button nextCenturies = new Button(By.XPath("//div[contains(@class,'centuries')]//th[@class='next']"), "Next centuries switch");
+        private static Button dropdownElement(string data) => new Button(By.XPath($"//div[contains(@class,'dropdown')]//span[contains(text(),'{data}')]"), $"Button with text '{data}'");
+        private static Button dayElement(string day) => new Button(By.XPath($"//div[contains(@class,'dropdown')]//td[@class='day' and text()='{day}']"), $"Button with {day} day");
+        private static Button roundedUpElement(string time) => new Button(By.XPath($"//div[contains(@class,'dropdown')]//span[@class='{time} new']"), "rounded up element");
+        private static Button roundedDownElement(string time) => new Button(By.XPath($"//div[contains(@class,'dropdown')]//span[@class='{time} old']"), "rounded up element");
 
         public DatepickerPage() : base(By.TagName("h1"), "Page body header") { }
 

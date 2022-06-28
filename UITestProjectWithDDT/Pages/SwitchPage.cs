@@ -1,12 +1,12 @@
 ﻿using OpenQA.Selenium;
+using UITestProjectWithDDT.Elements;
 
-namespace UITestProjectWithDDT
+namespace UITestProjectWithDDT.Pages
 {
     public class SwitchPage : Form
     {
-        private static readonly ElementFactory _elementFactory = new ElementFactory();
-        private static readonly Button openNewTab = _elementFactory.GetButton(By.Id("new-tab-button"),"Open new tab button");
-        private static readonly Button openAlert = _elementFactory.GetButton(By.Id("alert-button"), "Open alert button");
+        private static readonly Button openNewTab = new Button(By.Id("new-tab-button"),"Open new tab button");
+        private static readonly Button openAlert = new Button(By.Id("alert-button"), "Open alert button");
 
         public SwitchPage() : base(By.TagName("h1"), "Switch page") { }
 

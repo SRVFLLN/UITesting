@@ -9,9 +9,9 @@ namespace UITestProjectWithDDT
         private static IWebDriver driver = null;
 
         private SingletonDriver() 
-        { 
-            driver = new ChromeDriver(Directory.GetCurrentDirectory() + "/Resources"); 
+        {
             Logger.Info("Starting browser...");
+            driver = new ChromeDriver(Directory.GetCurrentDirectory() + "/Resources"); 
         }
 
         public static IWebDriver Source 
@@ -29,7 +29,6 @@ namespace UITestProjectWithDDT
         public static void Quit() 
         {
             driver.Quit();
-            SingletonDriver.Source.Dispose();
             driver = null;
             Logger.Info("Close browser...");
         }

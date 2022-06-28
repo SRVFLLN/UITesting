@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System;
 
-namespace UITestProjectWithDDT
+namespace UITestProjectWithDDT.Elements
 {
     public class InputElement : BaseElement
     {
@@ -13,11 +13,11 @@ namespace UITestProjectWithDDT
             {
                 FindElement().Clear();
                 FindElement().SendKeys(textForInput);
-                Logger.Info($"Into {Name} sendind text:", textForInput);
+                Logger.Info($"Into {Name} sendind text: {textForInput}");
             }
             catch (Exception exception)
             {
-                Logger.Error("Cannot send keys into element:",exception.Message);
+                Logger.Error($"Cannot send keys into element:{Name}. {exception.Message}");
             }
         }
 
@@ -33,5 +33,7 @@ namespace UITestProjectWithDDT
                 Logger.Error("Cannot send arrows into element:", exception.Message);
             }
         }
+
+        public string Value => GetAttribute("value");
     }
 }

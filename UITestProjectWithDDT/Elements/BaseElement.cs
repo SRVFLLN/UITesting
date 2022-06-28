@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace UITestProjectWithDDT
+namespace UITestProjectWithDDT.Elements
 {
     public abstract class BaseElement 
     {
@@ -34,7 +34,7 @@ namespace UITestProjectWithDDT
 
         protected IList<IWebElement> FindElements() => SingletonDriver.Source.FindElements(_locator);
 
-        public void Click(int countOfTryes = 0, params Exception[] exceptions)
+        public void Click(int countOfTryes = 0, params Exception[] handledException)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace UITestProjectWithDDT
                         }
                         catch(Exception ex)
                         {
-                            if (exceptions.Contains(ex))
+                            if (handledException.Contains(ex))
                             {
                                 countOfTryes--;
                             }
@@ -64,9 +64,9 @@ namespace UITestProjectWithDDT
                 }
                 FindElement().Click();
             }
-            catch 
+            catch(Exception e)
             {
-                Logger.Error($"Element with locator {_locator} is not clicable!");
+                Logger.Error($"Element with locator {_locator} is not clicable! {e.Message}");
                 throw;
             }
         }

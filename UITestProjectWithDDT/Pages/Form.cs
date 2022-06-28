@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace UITestProjectWithDDT
+namespace UITestProjectWithDDT.Pages
 {
     public abstract class Form
     {
@@ -21,13 +21,13 @@ namespace UITestProjectWithDDT
             {
                 try
                 {
-                    // Waitings.WaitUntilPageIsOpen(_locator);
+                    Waitings.WaitUntilPageIsOpen(_locator);
                     Logger.Info($"{_pagename} opened succesful");
                     return SingletonDriver.Source.FindElement(_locator).Displayed;
                 }
-                catch 
+                catch(System.Exception e) 
                 {
-                    Logger.Error($"Cannot open {_pagename}");
+                    Logger.Error($"Cannot open {_pagename}. {e.Message}");
                     return false;
                 }
             } 

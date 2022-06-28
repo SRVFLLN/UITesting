@@ -1,5 +1,7 @@
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
+using UITestProjectWithDDT.Pages;
 
 namespace UITestProjectWithDDT
 {
@@ -104,6 +106,20 @@ namespace UITestProjectWithDDT
             SingletonDriver.Source.Close();
             SingletonDriver.Source.SwitchTo().Window(mainTab);
             Assert.IsTrue(switchPage.IsPageOpen, "Tab not closed");
+        }
+
+        private static List<Human> Source => Deserialization.GetModelsFromFile<Human>(ConfigTool.GetTagValue("sourcename"));
+
+        [Test, TestCaseSource("Source")]
+        public void WebFormTest(Human human) 
+        {
+            MainPage mainPage = new MainPage();
+            Assert.IsTrue(mainPage.IsPageOpen, "Main page not opened");
+            mainPage.GoToWebFormPage();
+            WebFormPage webFormPage = new WebFormPage();
+            Assert.IsTrue(webFormPage.IsPageOpen, "Web Form page not opened");
+            webFormPage.FillWebForm(human);
+            Assert.AreEqual(human.ToString(), webFormPage.GetValuesFromForm(human), "Form filled incorrectly");
         }
     }
 }
